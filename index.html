@@ -1,37 +1,138 @@
+<!-- Enhanced Website Code -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TempEase - Temperature Moderating Pillows</title>
+    <meta name="description" content="Discover the ultimate temperature-moderating pillows for a perfect night's sleep. Shop now!">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: black; color: white; text-align: center; overflow-x: hidden; }
-        .background-video { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; object-fit: cover; z-index: -1; }
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: transparent; position: fixed; width: 100%; top: 0; transition: background 0.3s; z-index: 100; }
-        .header.scrolled { background: rgba(0, 0, 0, 0.8); }
-        .logo { font-size: 28px; font-weight: bold; }
-        .nav { display: flex; gap: 20px; }
-        .nav a { color: white; text-decoration: none; font-size: 18px; font-weight: 500; transition: color 0.3s; }
-        .nav a:hover { color: #ffcc00; }
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 50px 20px; }
-        .hero h1 { font-size: 48px; font-weight: 700; max-width: 800px; }
-        .hero p { font-size: 20px; margin-top: 10px; max-width: 600px; }
-        .cta-buttons { margin-top: 20px; }
-        .cta-buttons button { padding: 15px 30px; font-size: 18px; margin: 10px; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; transition: transform 0.2s, box-shadow 0.3s; }
-        .shop-btn { background-color: #ffcc00; color: #333; }
-        .learn-btn { background-color: #ffffff; color: #333; }
-        .cta-buttons button:hover { transform: scale(1.05); box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.6); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: black;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            transition: background 0.3s;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav a:hover {
+            color: #ffcc00;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            max-width: 800px;
+            animation: fadeIn 1.5s;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-top: 10px;
+            max-width: 600px;
+            animation: fadeIn 2s;
+        }
+        .cta-buttons {
+            margin-top: 20px;
+            animation: fadeIn 2.5s;
+        }
+        .cta-buttons button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+        .shop-btn {
+            background-color: #ffcc00;
+            color: #333;
+        }
+        .learn-btn {
+            background-color: #ffffff;
+            color: #333;
+        }
+        .cta-buttons button:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.6);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                display: none;
+            }
+            .nav.active {
+                display: flex;
+            }
+            .menu-icon {
+                display: block;
+                cursor: pointer;
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 <body>
     <video autoplay loop muted class="background-video">
-        <source src="https://github.com/anonyyyyx/TempEase/blob/main/Abstract%20moving%20blue%20background.mp4">
+        <source src="https://www.videvo.net/videvo_files/converted/2017_10/preview/171005_Cyber_002.mp472527.webm" type="video/webm">
     </video>
     <div class="header" id="header">
         <div class="logo">TempEase</div>
-        <div class="nav">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="nav" id="nav">
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
             <a href="how-it-works.html">How It Works</a>
@@ -47,5 +148,18 @@
             <button class="learn-btn" onclick="location.href='how-it-works.html'">Learn More</button>
         </div>
     </div>
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav').classList.toggle('active');
+        }
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(0, 0, 0, 0.8)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.6)';
+            }
+        });
+    </script>
 </body>
 </html>
